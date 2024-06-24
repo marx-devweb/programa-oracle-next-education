@@ -1,5 +1,6 @@
 alert("Seja bem-vidos(a) ao jogo do número secreto. Precione enter para iniciar.")
-let numSecreto = parseInt(Math.random() * 100 + 1);
+let numMaximo = prompt("informe um número máximo para o desafio:")
+let numSecreto = parseInt(Math.random() * numMaximo + 1);
 console.log(numSecreto);
 let numInformado; //variável para armazenanr o número informado pelo usuário.
 let tentativas = 1; //variável para armazenar a quantidade de tentativas.
@@ -8,7 +9,7 @@ let tentativas = 1; //variável para armazenar a quantidade de tentativas.
 //A execução das instruções vai continuar até que uma condição seja verdadeira.
 //Neste caso, o código abaixo será executado ate que o usuário acerte o número secreto.
 while (numInformado != numSecreto) {
-    numInformado = prompt("Informe um número entre 1 e 100:");
+    numInformado = prompt(`Informe um número entre 1 e ${numMaximo}:`);
 
     if(numInformado == numSecreto) {
         break; 
