@@ -6,4 +6,6 @@ let numInformado = prompt("Informe um número entre 1 e 10:"); //criando intera�
 //Se o número informado pelo usúario for igual ao número armazenado na variável "numSecreto", a mensagem será impresa no console.
 if(numSecreto == numInformado) {
     alert(`Parabéns! Você acertou o número secreto ${numSecreto}.`)
+} else { //adicinando um else, caso a condicional if der negativo.
+    alert("Você errou! Tente novamente.")
 }
