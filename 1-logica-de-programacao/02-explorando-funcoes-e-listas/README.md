@@ -32,7 +32,11 @@ A lógica de programação nada mais é do que uma sequência de passos para res
 
 ### Aula 02: Funções
 
-
+- Vimos como encapsular um trecho de código reutilizável dentro de uma função em JavaScript, isso é fundamental para manter o código organizado e modular;
+- Vimos a importância da palavra-chave "return" dentro da função para retornar o valor do número aleatório gerado.
+- Criamos uma função chamada `exibirMensagemInicialNaTela`, que não possui retorno nem parâmetros, e compreendemos a diferença entre funções com retorno e funções sem retorno. 
+- Aprendemos como chamar e invocar a função para exibir uma mensagem inicial na tela;
+- Vimos como os parâmetros e retornos são importantes para a comunicação entre funções e o restante do programa. 
 
 ---
 
