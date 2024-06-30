@@ -1,17 +1,29 @@
-/*
-let titulo = document.querySelector('h1'); //Selecionando a tag h1
-titulo.innerHTML = "JOGO DO NÚMERO SECRETO"; //inserindo o texto 
-
-let paragrafo = document.querySelector('p'); //Selecionando a tag p
-paragrafo.innerHTML = "Escolha um número entre 1 e 10:"; //inserindo o texto
-*/
-
+let listaDeNumerosSorteados = []; //array para armazenar os números já sorteados.
+let numeroMaximo = prompt('informe um número máximo para ser sorteado');
 let numeroSecreto = gerarNumAleatorio(); //armazenando o número aleatório.
 let quantidadeTentativas = 1; //armazenando a quantidade de tentativas.
 
 //FUNÇÃO PARA GERAR O NÚMERO ALEATÓRIO.
 function gerarNumAleatorio() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroSorteado = parseInt(Math.random() * numeroMaximo + 1); //armazenando o número sorteado em uma variável.
+    
+    let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length; //armazenando a quantidade máxima de elementos do array.
+    //Se a quantidade máxima de elementos do array for igual a numeroMaximo, nossa lista será reiniciada.
+    if(quantidadeDeElementosNaLista == numeroMaximo) {
+        listaDeNumerosSorteados = [];
+    }
+    
+    //CONDICIONAL PARA VERIFICAR SE O NÚMERO JÁ FOI SORTEADO OU NÃO
+    //verificanso se o número sorteado já contém no array "listaDeNumerosSorteados" através do método .includes()
+    if(listaDeNumerosSorteados.includes(numeroSorteado)){
+        //caso já contenha, a função irá sortear um novo número
+        return gerarNumAleatorio();
+    } else {
+        //caso não contrario, a função irá armazenar o número sorteado no array "listaDeNumerosSorteados" e retornar o número sorteado.
+        listaDeNumerosSorteados.push(numeroSorteado);
+        console.log(listaDeNumerosSorteados)
+        return numeroSorteado;
+    }
 }
 
 //FUNÇÃO PARA SELECIONAR A TAG E INSERIR O TEXTO.
@@ -22,9 +34,9 @@ function exibirTexto(tag, texto) {
 
 function exibirMensagemInicial() {
     exibirTexto('h1', 'JOGO DO NÚMERO SECRETO');
-    exibirTexto('p', 'Escolha um número entre 1 e 10:');
+    exibirTexto('p', `Escolha um número entre 1 e ${numeroMaximo}:`);
 }
-exibirMensagemInicial()
+exibirMensagemInicial();
 
 //FUNÇÃO PARA VERIFICAR SE O NÚMERO INFORMADO PELO USUÁRIO É IGUAL AO NÚMERO SECRETO.
 function verificarChute() {
@@ -36,6 +48,7 @@ function verificarChute() {
         exibirTexto('h1', 'Parabéns!!!'); 
         exibirTexto('p', mensagemTentativas); 
         document.getElementById('btnReiniciarJogo').removeAttribute('disabled'); //habilitando o botão de novo jogo.
+        document.getElementById('btnChutar').setAttribute('disabled', true); //desabilitando o botão de chutar
     } else {
         numeroInformado > numeroSecreto ? exibirTexto('p', 'O número secreto é menor.') : exibirTexto('p', ' número secreto é maior.')
         quantidadeTentativas++; //contando a quantidade de tentativas.
@@ -55,4 +68,5 @@ function reiniciarJogo() {
     limparCampo(); 
     exibirMensagemInicial();
     document.getElementById('btnReiniciarJogo').setAttribute('disabled', true); //desabilitando o botão novo jogo quando invocar a função.
+    document.getElementById('btnChutar').removeAttribute('disabled'); //habilitando o botão chutar.
 }
