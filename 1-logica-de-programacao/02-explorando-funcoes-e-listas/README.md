@@ -54,11 +54,4 @@ A lógica de programação nada mais é do que uma sequência de passos para res
 
 ### Aula 04: Listas
 
-
-
----
-
-<a id="ancora5"></a>
-
-### Aula 05: Publicando o projeto
-
+- Aprendemos a melhorar o código existente, tornando-o mais eficiente e legível. Neste caso, refatoramos a função que realiza o sorteio do número secreto, tornando-a mais robusta e garantindo que o número sorteado não seja repetido;
